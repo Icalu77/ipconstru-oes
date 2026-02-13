@@ -11,16 +11,32 @@
 body{
 margin:0;
 font-family:Arial;
-background:#111;
+background:#3a050c;
 color:white;
 }
 
 /* topo */
 .topo{
-background:#ff6600;
+background:#0076d1;
 padding:15px;
 font-size:22px;
 font-weight:bold;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+/* pesquisa */
+.pesquisa{
+display:flex;
+align-items:center;
+gap:5px;
+}
+
+.pesquisa input{
+padding:5px;
+border-radius:5px;
+border:none;
 }
 
 /* categoria estilo netflix */
@@ -37,7 +53,7 @@ gap:15px;
 /* card produto */
 .card{
 min-width:150px;
-background:#222;
+background:rgba(0, 0, 0, 0.27);
 border-radius:10px;
 overflow:hidden;
 }
@@ -68,42 +84,27 @@ cursor:pointer;
 
 <body>
 
-<div class="topo">IP Construções</div>
+<div class="topo">
+
+IP Construções
+
+<div class="pesquisa">
+🔍
+<input type="text" id="buscar" placeholder="Pesquisar..." onkeyup="pesquisar()">
+</div>
+
+</div>
 
 <div class="categoria">
-<h3>Cimentos</h3>
+<h3>Materiais</h3>
 
-<div class="linha">
+<div class="linha" id="linhaProdutos">
 
 <div class="card">
 <img src="cp32.png">
 <div class="info">
 <p>Cimento Bravo</p>
 <button onclick="comprar('Cimento Bravo')">Comprar</button>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="categoria">
-<h3>Materiais</h3>
-
-<div class="linha">
-
-<div class="card">
-<img src="https://via.placeholder.com/150">
-<div class="info">
-<p>Tijolo</p>
-<button onclick="comprar('Tijolo')">Comprar</button>
-</div>
-</div>
-
-<div class="card">
-<img src="https://via.placeholder.com/150">
-<div class="info">
-<p>Areia</p>
-<button onclick="comprar('Areia')">Comprar</button>
 </div>
 </div>
 
@@ -121,6 +122,26 @@ let mensagem = "Olá, quero comprar: " + produto;
 let link = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensagem);
 
 window.open(link);
+
+}
+
+/* função pesquisa */
+function pesquisar(){
+
+let input = document.getElementById("buscar").value.toLowerCase();
+let cards = document.querySelectorAll(".card");
+
+cards.forEach(card => {
+
+let nome = card.innerText.toLowerCase();
+
+if(nome.includes(input)){
+card.style.display = "block";
+}else{
+card.style.display = "none";
+}
+
+});
 
 }
 
