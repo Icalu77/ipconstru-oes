@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>IP Material de Construção</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#111;
+color:white;
+}
+
+/* topo */
+.topo{
+background:#ff6600;
+padding:15px;
+font-size:22px;
+font-weight:bold;
+}
+
+/* categoria estilo netflix */
+.categoria{
+padding:15px;
+}
+
+.linha{
+display:flex;
+overflow-x:auto;
+gap:15px;
+}
+
+/* card produto */
+.card{
+min-width:150px;
+background:#222;
+border-radius:10px;
+overflow:hidden;
+}
+
+.card img{
+width:100%;
+height:120px;
+object-fit:cover;
+}
+
+.info{
+padding:10px;
+}
+
+button{
+background:#25D366;
+border:none;
+color:white;
+padding:8px;
+width:100%;
+border-radius:5px;
+margin-top:5px;
+cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="topo">IP Construções</div>
+
+<div class="categoria">
+<h3>Cimentos</h3>
+
+<div class="linha">
+
+<div class="card">
+<img src="cp32.png">
+<div class="info">
+<p>Cimento Bravo</p>
+<button onclick="comprar('Cimento Bravo')">Comprar</button>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="categoria">
+<h3>Materiais</h3>
+
+<div class="linha">
+
+<div class="card">
+<img src="https://via.placeholder.com/150">
+<div class="info">
+<p>Tijolo</p>
+<button onclick="comprar('Tijolo')">Comprar</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/150">
+<div class="info">
+<p>Areia</p>
+<button onclick="comprar('Areia')">Comprar</button>
+</div>
+</div>
+
+</div>
+</div>
+
+<script>
+
+function comprar(produto){
+
+let numero = "5598984927080";
+
+let mensagem = "Olá, quero comprar: " + produto;
+
+let link = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensagem);
+
+window.open(link);
+
+}
+
+</script>
+
+</body>
+</html>
